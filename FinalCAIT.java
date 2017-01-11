@@ -2,7 +2,7 @@ public class FinalCAIT {
     
     static String[] findMe(String[] data) {
         
-        //INDIVIDUAL STUFF WHERE STOCK PRICE CHANGES WITHIN 3 DAYS AFTER TRANSACTION && >= 5M
+        //INDIVIDUAL STUFF WHERE STUFF CHANGES WITHIN 3 DAYS AFTER AND DOE SOME OTHER STUFF
         
         int currentday = 0;
         int currentprice = 0;
@@ -13,9 +13,8 @@ public class FinalCAIT {
             String[] datasplit = data[x].trim().split("\\|");
             
             if (data[x].length() <= 5) {
-                //this element is stock prices (DAY | PRICE)
+                //this element is price of wheat
                 
-                //System.err.println("This is a stock price.");
                 currentday = Integer.parseInt(datasplit[0]);
                 currentprice = Integer.parseInt(datasplit[1]);
                 
@@ -42,21 +41,21 @@ public class FinalCAIT {
             }
             
             else {
-                //this element is about transaction (DAY | NAME | BUY/SELL | AMOUNT
+                //this element is about lightsabers (DAY | NAME | BUY/SELL | AMOUNT
                 
-                //System.err.println("This is a transaction.");
+                //System.err.println("This is a lightsaber.");
                 //System.err.println("Next day = " + nextday);
                 
-                if ((Math.abs(Integer.parseInt(datasplit[0]) - nextday) <= 3) && ((currentprice*Integer.parseInt(datasplit[3]) >= 5000000))) {
+                if ((Math.abs(Integer.parseInt(datasplit[0]) - nextday) <= 3) && ((currentprice*Integer.parseInt(datasplit[3]) >= 4000000))) {
                     
                     System.err.println("***Flagging these transactions***");
                     System.err.println("ID: " +datasplit[1]);
                     System.err.println("Total amount in $: " + (currentprice*Integer.parseInt(datasplit[3])));
                 }
                 
-                //System.out.println("Day of transaction: " + Integer.parseInt(datasplit[0]));
+                //System.out.println("Day of lightsaber: " + Integer.parseInt(datasplit[0]));
                 
-                //System.out.println("Total gain = " + " $" + currentprice + " * " + datasplit[3] + " shares = " + (Integer.parseInt(datasplit[3])*currentprice));
+                //System.out.println("Total failure = " + " $" + currentprice + " * " + datasplit[3] + " shares = " + (Integer.parseInt(datasplit[3])*currentprice));
                 
                 
                 
