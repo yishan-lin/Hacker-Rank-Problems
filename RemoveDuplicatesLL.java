@@ -1,6 +1,7 @@
 /*Write code to remove duplicates from an unsorted linked list*/
 
 import java.util.Hashtable;
+import java.util.Set;
 
 public class RemoveDuplicatesLL {
     
@@ -33,22 +34,37 @@ public class RemoveDuplicatesLL {
     
     static void findduplicates(Node head) {
         
-        
-        while (head.next != null) {
-            
-            System.out.print(head.item + " => ");
-            
-            head = head.next;
-
-            if (head.next == null) {
+        Hashtable<Integer, Integer> linkedlistitems = new Hashtable<Integer, Integer>();
+     
+        while (head != null) {
+         
+            if (linkedlistitems.containsKey(head.item)) {
                 
-                System.out.print(head.item + ".");
+                linkedlistitems.put(head.item, 1 + linkedlistitems.get(head.item));
                 
             }
             
+            else {
+                
+                linkedlistitems.put(head.item, 1);
+                
+            }
+            
+            head = head.next;
+            
+        }
+        
+        Set<Integer> linkedlistkeys = linkedlistitems.keySet();
+        
+        for (int x: linkedlistkeys) {
+            
+            System.out.println("Key: " + x + " # Occurences: " + linkedlistitems.get(x));
+         
         }
         
     }
+    
+    
     
     
     public static void main(String[] args) {
