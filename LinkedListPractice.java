@@ -107,79 +107,48 @@ public class LinkedListPractice {
     }
     
     static Node delete(Node head, int target) {
+     
+        if (head
         
-        if (head == null) {
-            System.out.println("empty array");
-            return null;
-        }
         
-        else if (head.item == target) {
-            return head.next;
-        }
         
-        else {
-            Node headcopy = head.next;
-            
-            while (headcopy.next != null) {
-                
-                System.out.println("traversal!");
-                
-                if (headcopy.next.item == target) {
-                    
-                    System.out.println("found target!");
-                    System.out.println(headcopy.item);
-                    System.out.println(headcopy.next.item);
-                    
-                    headcopy.next = headcopy.next.next;
-                    
-                }
-                
-                headcopy = headcopy.next;
-            }
-            
-            return head;
-            
-        }
     }
-    
     
     public static void main(String[] args) {
         
         Node head = new Node (3, new Node(6, new Node(9, new Node (12))));
         
-        printLL(delete(head, 9));
-        
-        
+        printLL(null);
         
         /*printLL(head);
-         System.out.println();
-         printLL(emptyLL);
-         
-         printLL(addtofront(head, 10));
-         
-         System.out.println();
-         
-         printLL(addtorear(head, 14));
-         
-         System.out.println();
-         
-         printLL(insertinOrder(head, 10));
-         
-         System.out.println();
-         
-         printLL(insertinOrder(head, 2));
-         
-         System.out.println();
-         
-         printLL(insertinOrder(head, 7));
-         
-         System.out.println();
-         
-         System.err.println("testing delete");
-         
-         printLL(delete(head, 6));
-         
-         System.out.println();*/
+        System.out.println();
+        printLL(emptyLL);
+        
+        printLL(addtofront(head, 10));
+        
+        System.out.println();
+        
+        printLL(addtorear(head, 14));
+        
+        System.out.println();
+        
+        printLL(insertinOrder(head, 10));
+        
+        System.out.println();
+        
+        printLL(insertinOrder(head, 2));
+        
+        System.out.println();
+        
+        printLL(insertinOrder(head, 7));
+        
+        System.out.println();
+        
+        System.err.println("testing delete");
+        
+        printLL(delete(head, 6));
+        
+        System.out.println();*/
         
     }
     
