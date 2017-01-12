@@ -60,9 +60,15 @@ public class LinkedListPractice {
     
     static Node addtorear(Node head, int target) {
         
+        if (head == null) {
+            
+            return new Node(target);
+            
+        }
+        
         if (head.next == null) {
             
-            head.next = new Node(target);
+            head.next = new Node (target, null);
             
         }
         
@@ -76,12 +82,45 @@ public class LinkedListPractice {
         
     }
     
+    static Node insertinOrder(Node head, int target) {
+        
+        if (head == null) {
+            
+            return new Node(target);
+            
+        }
+        
+        else if (head.item > target) {
+            
+            return new Node(target, head);
+            
+        }
+        
+        else {
+            
+            head.next = insertinOrder(head.next, target);
+            
+        }
+        
+        return head;
+        
+    }
+    
+    static Node delete(Node head, int target) {
+     
+        if (head
+        
+        
+        
+    }
+    
     public static void main(String[] args) {
         
         Node head = new Node (3, new Node(6, new Node(9, new Node (12))));
-        Node emptyLL = null;
         
-        printLL(head);
+        printLL(null);
+        
+        /*printLL(head);
         System.out.println();
         printLL(emptyLL);
         
@@ -90,6 +129,27 @@ public class LinkedListPractice {
         System.out.println();
         
         printLL(addtorear(head, 14));
+        
+        System.out.println();
+        
+        printLL(insertinOrder(head, 10));
+        
+        System.out.println();
+        
+        printLL(insertinOrder(head, 2));
+        
+        System.out.println();
+        
+        printLL(insertinOrder(head, 7));
+        
+        System.out.println();
+        
+        System.err.println("testing delete");
+        
+        printLL(delete(head, 6));
+        
+        System.out.println();*/
+        
     }
     
 }
