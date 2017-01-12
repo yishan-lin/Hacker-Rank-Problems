@@ -29,8 +29,14 @@ public class LinkedListPractice {
     };
     
     static void printLL(Node head) {
-     
-        if (head.next == null) {
+        
+        if (head == null) {
+            
+            System.out.println("null");
+            
+        }
+        
+        else if (head.next == null) {
             
             System.out.print(head.item + ".");
             
@@ -44,27 +50,26 @@ public class LinkedListPractice {
         }
     }
     
-    static Node deleteNode(Node head, int item) {
-     
-        if (head == null) {
+    static Node addtofront(Node head, int target) {
         
-            System.out.println("Didn't find " + item + " in LL.");
-            return null;
-        }
+        head = new Node(target, head);
         
-        else if (head.item == item) {
+        return head;
+        
+    }
+    
+    static Node addtorear(Node head, int target) {
+        
+        if (head.next == null) {
             
-            System.err.println("Found " + item + "in LL.");
-            System.err.println("head.item = " + head.item);
-            System.err.println("head.next.item = " + head.next.item);
-            System.err.println("head.next.next.item = " + head.next.next.item);
-            head.next = head.next.next;
-
+            head.next = new Node(target);
+            
         }
         
         else {
             
-            head.next = deleteNode(head.next, item);
+            head.next = addtorear(head.next, target);
+            
         }
         
         return head;
@@ -74,14 +79,17 @@ public class LinkedListPractice {
     public static void main(String[] args) {
         
         Node head = new Node (3, new Node(6, new Node(9, new Node (12))));
+        Node emptyLL = null;
         
         printLL(head);
+        System.out.println();
+        printLL(emptyLL);
+        
+        printLL(addtofront(head, 10));
         
         System.out.println();
         
-        deleteNode(head, 5);
-        
-        printLL(deleteNode(head, 9));
+        printLL(addtorear(head, 14));
     }
     
 }
