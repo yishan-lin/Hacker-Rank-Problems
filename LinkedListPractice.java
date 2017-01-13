@@ -107,11 +107,23 @@ public class LinkedListPractice {
     }
     
     static Node delete(Node head, int target) {
+        
+        Node headcopy = head;
      
-        if (head
-        
-        
-        
+        while (headcopy.next != null) {
+            
+            if (headcopy.next.item == target) {
+            
+                System.err.println("found!");
+                headcopy.next = headcopy.next.next;
+                
+            }
+         
+            headcopy = headcopy.next;
+            
+        }
+            
+       return head;
     }
     
     public static void main(String[] args) {
@@ -119,6 +131,8 @@ public class LinkedListPractice {
         Node head = new Node (3, new Node(6, new Node(9, new Node (12))));
         
         printLL(null);
+        
+        printLL(delete(head, 6));
         
         /*printLL(head);
         System.out.println();
