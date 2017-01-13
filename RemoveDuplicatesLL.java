@@ -81,17 +81,36 @@ public class RemoveDuplicatesLL {
         
         int x = 0;
         
-        while (x < duplicates.size() && headcopy != null) {
-         
-            System.out.println("x = " + x);
+        while (x < duplicates.size() && headcopy.next != null) {
+
             System.out.println("headcopy.item = " + headcopy.item);
             
-            headcopy = headcopy.next;
-            x +=1;
+            if (headcopy.next.item == duplicates.get(x)) {
+                
+                System.out.println("found 1");
+                x+=1;
+                
+                if (headcopy.next.next.item == duplicates.get(x)) {
+                    
+                    System.out.println("found alter 1");
+                    x+= 1;
+                    headcopy.next = headcopy.next.next.next;
+                    
+                }
+                
+                else {
+                
+                headcopy.next = headcopy.next.next;
+                
+                }
+                
+            }
             
+            headcopy = headcopy.next;
+                
         }
         
-        return null;
+        return head;
     }
     
     static void printLL(Node head) {
