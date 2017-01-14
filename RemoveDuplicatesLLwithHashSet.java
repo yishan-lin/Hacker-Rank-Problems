@@ -89,10 +89,7 @@ public class RemoveDuplicatesLLwithHashSet {
         printLL(head);
         System.err.println("After removing duplicates:");
         printLL(removeduplicates(head));
-        
-//printLL(head);
-        //printLL(deleteduplicates(head));
-        
+
         
     }
     
