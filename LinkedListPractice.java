@@ -30,5 +30,7 @@ public class LinkedListPractice {
     
     public static void main(String[] args) {
         
+        Node head = new Node(3, new Node(6, new Node(9, new Node(12))));
+        
     }
 }
