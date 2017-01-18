@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class LinkedListPractice {
     
     static class Node {
@@ -29,7 +31,7 @@ public class LinkedListPractice {
     };
     
     static void printLL(Node head) {
-     
+        
         if (head == null) {
             System.err.println("empty array.");
         }
@@ -44,7 +46,7 @@ public class LinkedListPractice {
     }
     
     static Node removeNode(Node head, int target) {
-     
+        
         Node headcopy = head;
         
         if (head == null) {
@@ -54,7 +56,7 @@ public class LinkedListPractice {
             headcopy.next = headcopy.next.next;
         }
         else {
-         
+            
             headcopy.next = removeNode(headcopy.next, target);
             
         }
@@ -64,7 +66,7 @@ public class LinkedListPractice {
     }
     
     static Node addtofront(Node head, int target) {
-     
+        
         head = new Node(target, head);
         
         return head;
@@ -98,22 +100,74 @@ public class LinkedListPractice {
             headcopy.next = insertinorder(headcopy.next, target);
             
         }
-     
+        
+        return head;
+        
+    }
+    
+    static Node removeDuplicates(Node head) {
+        
+        Node headcopy = head;
+        Node previous = null;
+        
+        HashSet<Integer> duplicates = new HashSet<Integer>();
+        
+        while (headcopy != null) {
+            
+            if (duplicates.contains(headcopy.item)) {
+                
+                if (headcopy.next == null) {
+                 
+                    previous.next = null;
+                    
+                }
+                
+                else if (duplicates.contains(headcopy.next.item)) {
+                    
+                    previous.next = headcopy.next.next;
+                }
+                
+                else {
+                
+                previous.next = headcopy.next;
+                
+                }
+                
+                
+            }
+            
+            else {
+                
+                duplicates.add(headcopy.item);
+                
+            }
+            
+            previous = headcopy;
+            headcopy = headcopy.next;
+            
+        }
+        
+        
         return head;
         
     }
     
     public static void main(String[] args) {
         
-        Node head = new Node(3, new Node(6, new Node(9, new Node(12))));
-
+        Node head = new Node(3, new Node(6, new Node(9, new Node(12, new Node(9, new Node(6))))));
+        
+        /*printLL(head);
+         System.out.println();
+         printLL(removeNode(head, 6));
+         System.out.println();
+         printLL(insertinorder(head, 6));
+         System.out.println();
+         printLL(insertinorder(head, 13));
+         System.out.println();*/
         printLL(head);
         System.out.println();
-        printLL(removeNode(head, 6));
-        System.out.println();
-        printLL(insertinorder(head, 6));
-        System.out.println();
-        printLL(insertinorder(head, 13));
+        printLL(removeDuplicates(head));
+        
         
     }
 }
