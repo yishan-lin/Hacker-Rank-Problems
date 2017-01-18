@@ -45,7 +45,7 @@ public class DeleteMiddleNode {
     }
     
     
-    static void deletemiddleNode(Node head, int count) {
+    static Node deletemiddleNode(Node head, int count) {
         
         int halfway = count/2;
         int secondcount = 0;
