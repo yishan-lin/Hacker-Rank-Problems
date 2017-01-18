@@ -73,6 +73,24 @@ public class LinkedListPractice {
         
     }
     
+    static Node addtorear(Node head, int target) {
+     
+        while (head != null) {
+            
+            if (head.next == null) {
+                
+                head.next = new Node(target, null);
+                
+            }
+            
+            head = head.next;
+            
+        }
+        
+        return head;
+        
+    }
+    
     static Node insertinorder(Node head, int target) {
         
         Node headcopy = head;
@@ -166,8 +184,7 @@ public class LinkedListPractice {
          System.out.println();*/
         printLL(head);
         System.out.println();
-        printLL(removeDuplicates(head));
-        
+        printLL(addtorear(head, 10));
         
     }
 }
