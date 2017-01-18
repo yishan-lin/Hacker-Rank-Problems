@@ -81,9 +81,15 @@ public class LinkedListPractice {
             
         }
         
-        else if (headcopy.next.item > target) {
+        else if (headcopy.item > target) {
             
-            headcopy.next = new Node(target, headcopy.next);
+            return new Node(target, headcopy);
+            
+        }
+        
+        else if (headcopy == null) {
+            
+            return new Node(target, null);
             
         }
         
@@ -106,6 +112,8 @@ public class LinkedListPractice {
         printLL(removeNode(head, 6));
         System.out.println();
         printLL(insertinorder(head, 6));
+        System.out.println();
+        printLL(insertinorder(head, 13));
         
     }
 }
