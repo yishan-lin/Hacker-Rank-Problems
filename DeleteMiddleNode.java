@@ -30,46 +30,75 @@ public class DeleteMiddleNode {
     
     private static int count = 0;
     
-    static void deletemiddleNode(Node head) {
+    static int findNodelength(Node head) {
      
         Node headcopy = head;
         
         while (headcopy != null) {
             
             count += 1;
-            System.out.println(head.item + " @ " + count);
             headcopy = headcopy.next;
             
         }
         
-        System.out.println("the length of the head = " + count);
+        return count;
+    }
+    
+    
+    static void deletemiddleNode(Node head, int count) {
         
         int halfway = count/2;
-        
-        int second_count = 0;
-        
-        Node previous = head;
+        int secondcount = 0;
+        Node previous = null;
         
         while (head != null) {
             
-            second_count += 1;
+            secondcount += 1;
             
-            if (second_count == halfway) {
-                
+            if (secondcount == halfway) {
+   
                 previous.next = head.next;
+                
             }
             
             previous = head;
             head = head.next;
             
+            
+        }
+        
+
+        return head;
+        
+    }
+    
+    static void printLL(Node head) {
+        
+        if (head == null) {
+            System.err.println("empty array");
+        }
+        
+        else if (head.next == null) {
+            
+            System.out.println(head.item + ".");
+            
+        }
+        
+        else {
+            
+            System.out.println(head.item + " => ");
+            
+            head = head.next;   
         }
         
     }
-      
+    
     public static void main(String[] args) {
         
         Node head = new Node(3, new Node(6, new Node(9, new Node(12))));
-        deletemiddleNode(head);
+        int count = findNodelength(head);
+        deletemiddleNode(head, count);
+        
     }
     
 }
