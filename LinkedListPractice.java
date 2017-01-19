@@ -182,7 +182,7 @@ public class LinkedListPractice {
          System.out.println();
          printLL(insertinorder(head, 13));
          System.out.println();*/
-        printLL(head);
+       // printLL(head);
         System.out.println();
         printLL(addtorear(head, 10));
         
